@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Registration</title>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+    <header>
+
+        <div class="auth-buttons">
+            <a href="login.html" class="auth-button">Login</a>
+            <a href="form.html" class="auth-button">Register</a>
+        </div>
+
+        <div class="title">
+            <img src="photos/logo/unique_logo.png" alt="logo" width="100" height="100">
+            <h1>TCMarketplace</h1>  
+        </div>
+
+        
+        <div class="main-bar">
+        <nav>
+            <ul>
+                <li><a href="index.html">AΡΧΙΚΗ ΣΕΛΙΔΑ</a></li>
+                <li class="active"><a href="categories.html">ΚΑΤΗΓΟΡΙΕΣ</a></li>
+                <li><a href="about_us.html">ABOUT US</a></li>
+                <li><a href="contact_info.html">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+            </ul>
+        </nav>    
+        </div>
+        
+    </header>
+
+
+
+
+
+    <form id="registrationForm" onsubmit="validateForm(event)">
+        <label for="fullName">Ονοματεπώνυμο:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="address">Διεύθυνση Κατοικίας:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="address">Αριθμός Διεύθυνσης Κατοικίας:</label>
+        <input type="number" id="address_number" name="address_number" required>
+
+        <label for="address">Ταχυδρομικός Κώδικας:</label>
+        <input type="number" id="postal_code" name="postal_code" required>
+
+        <label for="phone_number">Αριθμ'ος Τηλεφώνου:</label>
+        <input type="number" id="phone" name="phone_number" required>
+
+        <label for="birthdate">Ημερομηνία Γέννησης:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirmPassword">Επιβεβαίωση Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <label>Επιλογές Επικοινωνίας:</label>
+        
+        <input type="checkbox" id="sms" name="contactMethod" value="sms"> SMS
+        <input type="checkbox" id="emailContact" name="contactMethod" value="email"> Email
+        <input type="checkbox" id="viber" name="contactMethod" value="viber"> Viber
+        <input type="checkbox" id="whatsapp" name="contactMethod" value="whatsapp"> WhatsApp
+        
+        <br>
+        <br>
+        <br>
+
+        <label for="questionnaire">Ερωτηματολόγιο:</label>
+        <textarea id="questionnaire" name="questionnaire" rows="4" required></textarea>
+
+        <br>
+        <br>
+
+        <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+
+        <br>
+
+        <button type="submit">Υποβολή</button>
+    </form>
+
+    <script>
+        function validateForm(event) {
+            // Εδώ θα πρέπει να υλοποιήσετε τον κώδικα επικύρωσης με το Constraint Validation API.
+            // Επίσης, μπορείτε να υλοποιήσετε εδώ τους σύνθετους κανόνες επικύρωσης.
+
+            // Παράδειγμα:
+            var password = document.getElementById('password');
+            var confirmPassword = document.getElementById('confirmPassword');
+
+            if (password.value !== confirmPassword.value) {
+                alert('Οι κωδικοί πρόσβασης δεν ταιριάζουν.');
+                event.preventDefault();
+            }
+
+            var response = grecaptcha.getResponse();
+            if (response.length === 0) {
+                alert('Παρακαλούμε επιβεβαιώστε ότι δεν είστε ρομπότ.');
+                event.preventDefault(); // Prevent form submission
+            }
+        }
+
+        
+    </script>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h2>ΓΕΩΡΓΙΟΣ ΜΠΙΛΙΑΣ</h2>
+                <p><a href="mailto:p3200278@aueb.gr">p3200278@aueb.gr</a></p>
+                <a href="https://github.com/GeorgeBilias">
+                    <img src="photos/footer2.png" alt="GitHub" width="25" height="25">
+                </a>
+                <a href="https://www.linkedin.com/in/george-bilias-02/">
+                    <img src="photos/footer1.png" alt="LinkedIn" width="25" height="25">
+                </a>
+            </div>
+            <div class="footer-column">
+                <h2>ΙΩΑΝΝΗΣ ΠΑΤΟΥΧΑΣ</h2>
+                <p><a href="mailto:p3200149@aueb.gr">p3200149@aueb.gr</a></p>
+                <a href="https://github.com/GPatouchas">
+                    <img src="photos/footer2.png" alt="GitHub" width="25" height="25">
+                </a>
+                <a href="https://www.linkedin.com/in/giannis-patouchas-8bb774240/">
+                    <img src="photos/footer1.png" alt="LinkedIn" width="25" height="25">
+                </a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <a href="about_us.html">Who We Are</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Cookie Policy</a>
+            <a href="contact_info.html">Contact Us</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
