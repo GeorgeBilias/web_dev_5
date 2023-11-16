@@ -721,6 +721,10 @@ button:hover {
   transition: background-color 0.3s ease;
 }
 
+.auth-button.active {
+  color: #a1a0a0;
+}
+
 /* Style for each label and checkbox */
 .checkbox-container {
   margin-top: 30px;
