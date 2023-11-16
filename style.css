@@ -721,9 +721,26 @@ button:hover {
   transition: background-color 0.3s ease;
 }
 
-.auth-button:hover {
-  background-color: #555555;
+/* Style for each label and checkbox */
+.checkbox-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
+
+.checkbox-option {
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.checkbox-option label {
+  margin-left: 5px;
+  min-width: 100px;
+}
+
+
 
 #questionaire_title {
   text-align: center;

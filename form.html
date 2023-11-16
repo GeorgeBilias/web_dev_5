@@ -43,8 +43,11 @@
 
         <fieldset id="field1">
 
-            <label for="fullName">Ονοματεπώνυμο:</label>
-            <input type="text" id="fullName" name="fullName" required>
+            <label for="fullName">Όνομα:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Επώνυμο:</label>
+            <input type="text" id="lastName" name="lastName" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
@@ -72,12 +75,36 @@
 
             <label for="confirmPassword">Επιβεβαίωση Password:</label>
             <input type="password" id="confirmPassword" name="confirmPassword" required>
-
+            
+            
             <label>Επιλογές Επικοινωνίας:</label>
-            <input type="checkbox" id="sms" name="contactMethod" value="sms"> SMS
-            <input type="checkbox" id="emailContact" name="contactMethod" value="email"> Email
-            <input type="checkbox" id="viber" name="contactMethod" value="viber"> Viber
-            <input type="checkbox" id="whatsapp" name="contactMethod" value="whatsapp"> WhatsApp
+
+            
+            <!-- Checkbox Options -->
+            <div class="checkbox-container">
+                <div class="checkbox-option">
+                    <input type="checkbox" id="sms" name="sms">
+                    <label for="sms">SMS</label>
+                </div>
+                
+                <div class="checkbox-option">
+                    <input type="checkbox" id="email" name="contactMethod">
+                    <label for="email">Email</label>
+                </div>
+                
+                <div class="checkbox-option">
+                    <input type="checkbox" id="viber" name="contactMethod">
+                    <label for="viber">Viber</label>
+                </div>
+                
+                <div class="checkbox-option">
+                    <input type="checkbox" id="whatsapp" name="contactMethod"> 
+                    <label for="whatsapp">WhatsApp</label>
+                </div>
+            </div>
+              
+              
+            
 
         </fieldset>
 
