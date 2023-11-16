@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Registration</title>
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="script.js"></script>
 </head>
 <body>
 
@@ -36,87 +36,84 @@
     </header>
 
 
-
+    
 
 
     <form id="registrationForm" onsubmit="validateForm(event)">
-        <label for="fullName">Ονοματεπώνυμο:</label>
-        <input type="text" id="fullName" name="fullName" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <fieldset id="field1">
 
-        <label for="address">Διεύθυνση Κατοικίας:</label>
-        <input type="text" id="address" name="address" required>
+            <label for="fullName">Ονοματεπώνυμο:</label>
+            <input type="text" id="fullName" name="fullName" required>
 
-        <label for="address">Αριθμός Διεύθυνσης Κατοικίας:</label>
-        <input type="number" id="address_number" name="address_number" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-        <label for="address">Ταχυδρομικός Κώδικας:</label>
-        <input type="number" id="postal_code" name="postal_code" required>
+            <label for="address">Διεύθυνση Κατοικίας:</label>
+            <input type="text" id="address" name="address" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" required>
 
-        <label for="phone_number">Αριθμός Τηλεφώνου:</label>
-        <input type="number" id="phone" name="phone_number" required>
+            <label for="address">Αριθμος Διεύθυνση Κατοικίας:</label>
+            <input type="number" id="address_number" name="address_number" required>
 
-        <label for="birthdate">Ημερομηνία Γέννησης:</label>
-        <input type="date" id="birthdate" name="birthdate" required>
+            <label for="address">Ταχυδρομικός Κώδικας:</label>
+            <input type="number" id="postal_code" name="postal_code" required>
 
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+            <label for="phone_number">Αριθμος Τηλεφώνου:</label>
+            <input type="number" id="phone" name="phone_number" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+            <label for="birthdate">Ημερομηνία Γέννησης:</label>
+            <input type="date" id="birthdate" name="birthdate" required>
 
-        <label for="confirmPassword">Επιβεβαίωση Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
-        <label>Επιλογές Επικοινωνίας:</label>
-        
-        <input type="checkbox" id="sms" name="contactMethod" value="sms"> SMS
-        <input type="checkbox" id="emailContact" name="contactMethod" value="email"> Email
-        <input type="checkbox" id="viber" name="contactMethod" value="viber"> Viber
-        <input type="checkbox" id="whatsapp" name="contactMethod" value="whatsapp"> WhatsApp
-        
-        <br>
-        <br>
-        <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
 
-        <label for="questionnaire">Ερωτηματολόγιο:</label>
-        <textarea id="questionnaire" name="questionnaire" rows="4" required></textarea>
+            <label for="confirmPassword">Επιβεβαίωση Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
 
-        <br>
-        <br>
+            <label>Επιλογές Επικοινωνίας:</label>
+            <input type="checkbox" id="sms" name="contactMethod" value="sms"> SMS
+            <input type="checkbox" id="emailContact" name="contactMethod" value="email"> Email
+            <input type="checkbox" id="viber" name="contactMethod" value="viber"> Viber
+            <input type="checkbox" id="whatsapp" name="contactMethod" value="whatsapp"> WhatsApp
 
-        <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+        </fieldset>
 
-        <br>
+        <fieldset id="field2">
 
-        <button type="submit">Υποβολή</button>
+            <p id="questionaire_title">Σύντομο ερωτηματολόγιο</p>
+
+            <br>
+            <br>
+
+            <label for="adType">Τι τύπος αγγελίας σας ενδιαφέρει;</label>
+            <input type="text" id="adType" name="adType" required>
+
+            <label for="jobPosition">Ποία είναι η θέση εργασίας σας;</label>
+            <input type="text" id="jobPosition" name="jobPosition" required>
+
+            <label for="preferredResidence">Σε ποιές περιοχές θα σας ενδιέφερε να κατοικήσετε;</label>
+            <input type="text" id="preferredResidence" name="preferredResidence" required>
+
+            <label for="professionalAreas">Σε ποιές περιοχές θα σας ενδιέφερε να δραστηριοποιηθείτε επαγγελματικά;</label>
+            <input type="text" id="professionalAreas" name="professionalAreas" required>
+
+            <label for="vehicleTypes">Τι τύπους οχημάτων χρησιμοποιείτε;</label>
+            <input type="text" id="vehicleTypes" name="vehicleTypes" required>
+
+            <br>
+            <br>      
+
+        </fieldset>
+
+        <button type="submit">
+            Υποβολή
+        </button>
+
+
     </form>
-
-    <script>
-        function validateForm(event) {
-            // Εδώ θα πρέπει να υλοποιήσετε τον κώδικα επικύρωσης με το Constraint Validation API.
-            // Επίσης, μπορείτε να υλοποιήσετε εδώ τους σύνθετους κανόνες επικύρωσης.
-
-            // Παράδειγμα:
-            var password = document.getElementById('password');
-            var confirmPassword = document.getElementById('confirmPassword');
-
-            if (password.value !== confirmPassword.value) {
-                alert('Οι κωδικοί πρόσβασης δεν ταιριάζουν.');
-                event.preventDefault();
-            }
-
-            var response = grecaptcha.getResponse();
-            if (response.length === 0) {
-                alert('Παρακαλούμε επιβεβαιώστε ότι δεν είστε ρομπότ.');
-                event.preventDefault(); // Prevent form submission
-            }
-        }
-
-        
-    </script>
 
 <footer>
     <div class="footer-container">
