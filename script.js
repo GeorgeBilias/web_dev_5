@@ -10,12 +10,19 @@ function validateForm(event) {
 
     if (password.value !== confirmPassword.value) {
         alert('Passwords do not match.');
+
+        password.style.border = '1px solid red';
+        confirmPassword.style.border = '1px solid red';
+
         event.preventDefault();
     }
 
     // Check if the password meets the criteria
     if (!isValidPassword(password.value)) {
         alert('Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
+
+        password.style.border = '1px solid red';
+
         event.preventDefault();
     }
 
@@ -41,6 +48,10 @@ function validateForm(event) {
     if (birthdateDate < minDate || birthdateDate > maxDate) {
         // Prevent the form from being submitted
         event.preventDefault();
+
+        birthdate.style.border = '1px solid red';
+
+
         // Alert the user
         alert('Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
     }
@@ -58,6 +69,8 @@ function validateForm(event) {
         
         event.preventDefault();
 
+        phone.style.border = '1px solid red';
+
         // Alert the user
         alert('Phone number must be 10 digits long.');
     }
@@ -65,6 +78,8 @@ function validateForm(event) {
     if (postalCode!=5) {
         
         event.preventDefault();
+
+        postal_code.style.border = '1px solid red';
 
         // Alert the user
         alert('Postal code must be 5 digits long.');
