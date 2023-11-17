@@ -36,10 +36,12 @@
     </header>
 
 
-    
-
 
     <form id="registrationForm" onsubmit="validateForm(event)">
+
+        <fieldset id="field4">
+        
+            <legend id="field4-legend">Εγγραφή</legend>
 
         <fieldset id="field1">
 
@@ -77,31 +79,35 @@
             <input type="password" id="confirmPassword" name="confirmPassword" required>
             
             
-            <label>Επιλογές Επικοινωνίας:</label>
+            <fieldset id="field3">
+
+            <legend>Επιλογές Επικοινωνίας</legend>
 
             
-            <!-- Checkbox Options -->
-            <div class="checkbox-container">
-                <div class="checkbox-option">
-                    <input type="checkbox" id="sms" name="sms">
-                    <label for="sms">SMS</label>
-                </div>
+                <!-- Checkbox Options -->
+                <div class="checkbox-container">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="sms" name="sms">
+                        <label for="sms">SMS</label>
+                    </div>
                 
-                <div class="checkbox-option">
-                    <input type="checkbox" id="email" name="contactMethod">
-                    <label for="email">Email</label>
-                </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="email" name="contactMethod">
+                        <label for="email">Email</label>
+                    </div>
                 
-                <div class="checkbox-option">
-                    <input type="checkbox" id="viber" name="contactMethod">
-                    <label for="viber">Viber</label>
-                </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="viber" name="contactMethod">
+                        <label for="viber">Viber</label>
+                    </div>
                 
-                <div class="checkbox-option">
-                    <input type="checkbox" id="whatsapp" name="contactMethod"> 
-                    <label for="whatsapp">WhatsApp</label>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="whatsapp" name="contactMethod"> 
+                        <label for="whatsapp">WhatsApp</label>
+                    </div>
                 </div>
-            </div>
+
+            </fieldset>
               
               
             
@@ -110,7 +116,7 @@
 
         <fieldset id="field2">
 
-            <p id="questionaire_title">Σύντομο ερωτηματολόγιο</p>
+            <p id="questionaire_title"><u>Σύντομο ερωτηματολόγιο</u></p>
 
             <br>
             <br>
@@ -140,6 +146,7 @@
         </button>
 
 
+        </fieldset>
     </form>
 
 <footer>
