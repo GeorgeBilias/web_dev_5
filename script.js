@@ -59,7 +59,8 @@ function validateForm(event) {
 
     // Get the address number and postal code input values
     var phone_number = document.getElementById('phone').value.toString().length;
-    var postalCode = document.getElementById('postal_code').value.toString().length;
+    var postalCode = document.getElementById('postal_code').value.replace(/\s/g, '').length;
+    console.log(postalCode);
 
     console.log('Phone number:', phone_number);
     console.log('Postal code:', postalCode);
@@ -72,7 +73,7 @@ function validateForm(event) {
         phone.style.border = '1px solid red';
 
         // Alert the user
-        alert('Phone number must be 10 digits long.');
+        alert('Phone number must be 10 digits.');
     }
 
     if (postalCode!=5) {
@@ -82,7 +83,17 @@ function validateForm(event) {
         postal_code.style.border = '1px solid red';
 
         // Alert the user
-        alert('Postal code must be 5 digits long.');
+        alert('Postal code must be 5 digits.');
+    }
+    var address_number = document.getElementById('address_number').value;
+
+    if (address_number<1) {
+
+        event.preventDefault();
+
+        address_number.style.border = '1px solid red';
+        
+        alert('Address number must be greater than 0.');
     }
 
 
@@ -101,16 +112,6 @@ function validateForm(event) {
         // Alert the user
         alert('Please select at least one contact method.');
     }
-
-
-
-
-
-
-
-
-
-
 
     
 }

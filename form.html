@@ -46,10 +46,10 @@
         <fieldset id="field1">
 
             <label for="fullName">Όνομα:</label>
-            <input type="text" id="firstName" name="firstName" required>
+            <input type="text" id="firstName" name="firstName" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" required>
 
             <label for="lastName">Επώνυμο:</label>
-            <input type="text" id="lastName" name="lastName" required>
+            <input type="text" id="lastName" name="lastName" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required placeholder="example@gmail.com">
@@ -58,13 +58,13 @@
             <input type="text" id="address" name="address" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" required>
 
             <label for="address_number">Αριθμος Διεύθυνσης Κατοικίας:</label>
-            <input type="number" id="address_number" name="address_number" required>
+            <input type="number" id="address_number" name="address_number" min="1" required>
 
             <label for="postal_code">Ταχυδρομικός Κώδικας:</label>
-            <input type="number" id="postal_code" name="postal_code">
+            <input type="text" id="postal_code" name="postal_code" pattern="^\d?\s?\d?\s?\d?\s?\d?\s?\d?$" title="Εισάγετε 5 ψηφία με προαιρετικά κενά">
 
             <label for="phone">Αριθμος Τηλεφώνου:</label>
-            <input type="number" id="phone" name="phone">
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
 
             <label for="birthdate">Ημερομηνία Γέννησης:</label>
             <input type="date" id="birthdate" name="birthdate" required>
