@@ -1,31 +1,46 @@
 function validateForm(event) {
     
     console.log('validateForm function called');
-    
-    var password = document.getElementById('password');
-    var confirmPassword = document.getElementById('confirmPassword');
 
-    console.log('Password:', password.value);
-    console.log('Confirm Password:', confirmPassword.value);
 
-    if (password.value !== confirmPassword.value) {
-        alert('Passwords do not match.');
+    // Get the address number and postal code input values
+    var phone_number = document.getElementById('phone').value.toString().length;
+    var postalCode = document.getElementById('postal_code').value.replace(/\s/g, '').length;
+    console.log(postalCode);
 
-        password.style.border = '1px solid red';
-        confirmPassword.style.border = '1px solid red';
+    console.log('Phone number:', phone_number);
+    console.log('Postal code:', postalCode);
 
-        event.preventDefault();
-    }
+    var address_number = document.getElementById('address_number').value;
 
-    // Check if the password meets the criteria
-    if (!isValidPassword(password.value)) {
-        alert('Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
-
-        password.style.border = '1px solid red';
+    if (address_number<1) {
 
         event.preventDefault();
+
+        address_number.style.border = '1px solid red';
+        
+        alert('Address number must be greater than 0.');
     }
 
+    if (postalCode!=5) {
+        
+        event.preventDefault();
+
+        postal_code.style.border = '1px solid red';
+
+        // Alert the user
+        alert('Postal code must be 5 digits.');
+    }
+
+    if (phone_number!=10) {
+        
+        event.preventDefault();
+
+        phone.style.border = '1px solid red';
+
+        // Alert the user
+        alert('Phone number must be 10 digits.');
+    }
 
     // Get the birthdate input element
     var birthdateInput = document.getElementById('birthdate');
@@ -56,46 +71,29 @@ function validateForm(event) {
         alert('Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
     }
 
+    var password = document.getElementById('password');
+    var confirmPassword = document.getElementById('confirmPassword');
 
-    // Get the address number and postal code input values
-    var phone_number = document.getElementById('phone').value.toString().length;
-    var postalCode = document.getElementById('postal_code').value.replace(/\s/g, '').length;
-    console.log(postalCode);
+    console.log('Password:', password.value);
+    console.log('Confirm Password:', confirmPassword.value);
 
-    console.log('Phone number:', phone_number);
-    console.log('Postal code:', postalCode);
+    if (password.value !== confirmPassword.value) {
+        alert('Passwords do not match.');
 
-    
-    if (phone_number!=10) {
-        
-        event.preventDefault();
-
-        phone.style.border = '1px solid red';
-
-        // Alert the user
-        alert('Phone number must be 10 digits.');
-    }
-
-    if (postalCode!=5) {
-        
-        event.preventDefault();
-
-        postal_code.style.border = '1px solid red';
-
-        // Alert the user
-        alert('Postal code must be 5 digits.');
-    }
-    var address_number = document.getElementById('address_number').value;
-
-    if (address_number<1) {
+        password.style.border = '1px solid red';
+        confirmPassword.style.border = '1px solid red';
 
         event.preventDefault();
-
-        address_number.style.border = '1px solid red';
-        
-        alert('Address number must be greater than 0.');
     }
 
+    // Check if the password meets the criteria
+    if (!isValidPassword(password.value)) {
+        alert('Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
+
+        password.style.border = '1px solid red';
+
+        event.preventDefault();
+    }
 
 
     // Get the checkbox elements
@@ -122,7 +120,8 @@ function isValidPassword(password) {
     return regex.test(password);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+
     var form = document.getElementById("registrationForm");
     form.addEventListener('submit', validateForm);
-});
+        
+//TODO: fIX THE VALIDATION FORM IN THE LINES 124-125, FIX THE RED COLORING, REMOVE THE WARNINGS

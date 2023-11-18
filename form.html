@@ -46,25 +46,26 @@
         <fieldset id="field1">
 
             <label for="fullName">Όνομα:</label>
-            <input type="text" id="firstName" name="firstName" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" required>
+            <input type="text" id="firstName" name="firstName" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" title="Παρακαλώ εισάγετε το όνομα σας" required>
 
             <label for="lastName">Επώνυμο:</label>
-            <input type="text" id="lastName" name="lastName" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" required>
+            <input type="text" id="lastName" name="lastName" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" title="Παρακαλώ εισάγετε το επίθετο σας" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+            <input type="email" id="email" name="email" required title="Παρακαλώ εισάγετε ένα έγκυρο email" placeholder="example@gmail.com">
 
             <label for="address">Διεύθυνση Κατοικίας:</label>
-            <input type="text" id="address" name="address" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" required>
+            <input type="text" id="address" name="address" pattern="[A-Za-zΑ-Ωα-ωάέηίόύϋΰώ\s]+" title="Παρακαλώ εισάγετε μια έγκυρη διεύθυνση" required>
 
             <label for="address_number">Αριθμος Διεύθυνσης Κατοικίας:</label>
-            <input type="number" id="address_number" name="address_number" min="1" required>
+            <input type="number" id="address_number" name="address_number" pattern="[0-9]*" title="Παρακαλώ εισάγετε ένα έγκυρο νούμερο" min="1" required>
 
             <label for="postal_code">Ταχυδρομικός Κώδικας:</label>
-            <input type="text" id="postal_code" name="postal_code" pattern="^\d?\s?\d?\s?\d?\s?\d?\s?\d?$" title="Εισάγετε 5 ψηφία με προαιρετικά κενά">
+            <input type="text" id="postal_code" name="postal_code" pattern="^\d\s?\d{4}$|^\d{2}\s?\d{3}$|^\d{3}\s?\d{2}$|^\d{4}\s?\d$" title="Εισάγετε ΤΚ σε ενα απ'τα επιτρεπόμενα formats: 'Α ΒΒΒΒ', 'ΑΑ ΒΒΒ', 'ΑΑΑ ΒΒ', 'ΑΑΑΑ Β'" required>
+
 
             <label for="phone">Αριθμος Τηλεφώνου:</label>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+            <input type="tel" id="phone" name="phone" title="Παρακαλώ εισάγετε ένα 10ψήφιο αριθμό τηλεφώνου χωρίς κενά" pattern="[0-9]*" required>
 
             <label for="birthdate">Ημερομηνία Γέννησης:</label>
             <input type="date" id="birthdate" name="birthdate" required>
