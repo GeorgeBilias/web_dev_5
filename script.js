@@ -122,6 +122,7 @@ function isValidPassword(password) {
     return regex.test(password);
 }
 
-// Attach the validateForm function to the form's submit event
-var form = document.getElementById("registrationForm"); // Replace 'yourFormId' with the actual ID of your form
-form.addEventListener('submit', validateForm);
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById("registrationForm");
+    form.addEventListener('submit', validateForm);
+});
