@@ -769,6 +769,19 @@ select {
   margin-bottom: 10%;
 }
 
+#field2 details p{
+  margin-bottom: 30px;
+}
+
+#field2 details {
+  margin-bottom: 30px;
+}
+
+#field2 summary {
+  cursor: pointer;
+  text-align: center;
+}
+
 #field3 {
   margin-top: 30px;
   border-radius: 7px;
