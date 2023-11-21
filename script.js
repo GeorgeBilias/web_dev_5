@@ -1,59 +1,76 @@
+const form = document.getElementById('registrationForm');
+form.addEventListener('submit', function (event) {
+    validateForm(event);
+});
+
+
+
 function validateForm(event) {
+
+    event.preventDefault();
     
-    console.log('validateForm function called');
+    console.log('function called');
+
+    const first_name = document.getElementById('firstName');
+    const last_name = document.getElementById('lastName');
+    const email = document.getElementById('email');
+    const address = document.getElementById('address');
+    const address_number = document.getElementById('address_number');
+    const postalCode = document.getElementById('postal_code');
+    const phone_number = document.getElementById('phone');
+    const birthdateInput = document.getElementById('birthdate');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirmPassword');
+
+    const first_nameValue = first_name.value;
+    const last_nameValue = last_name.value;
+    const emailValue = email.value;
+    const addressValue = address.value;
+    const address_numberValue = address_number.value;
+    const postalCodeValue = postalCode.value.replace(/\s/g, '').length;
+    const phone_numberValue = phone_number.value.toString().length;
+    const birthdateValue = birthdateInput.value;
+    const passwordValue = password.value;
+    const confirmPasswordValue = confirmPassword.value;
 
 
     // Get the address number and postal code input values
-    var phone_number = document.getElementById('phone').value.toString().length;
-    var postalCode = document.getElementById('postal_code').value.replace(/\s/g, '').length;
-    console.log(postalCode);
+    
 
-    console.log('Phone number:', phone_number);
-    console.log('Postal code:', postalCode);
+    if (address_numberValue<1) {
 
-    var address_number = document.getElementById('address_number').value;
-
-    if (address_number<1) {
-
-        event.preventDefault();
-
-        address_number.style.border = '1px solid red';
-        
-        alert('Address number must be greater than 0.');
+        setErrorFor(address_number, 'Address number must be greater than 0.');
+        //alert('Address number must be greater than 0.');
+    }else{
+        setSuccessFor(address_number);
     }
 
-    if (postalCode!=5) {
-        
-        event.preventDefault();
+    if (postalCodeValue!=5) {
 
-        postal_code.style.border = '1px solid red';
-
+        setErrorFor(postalCode, 'Postal code must be 5 digits.');
         // Alert the user
-        alert('Postal code must be 5 digits.');
+        //alert('Postal code must be 5 digits.');
+    }else{
+        setSuccessFor(postalCode);
     }
 
-    if (phone_number!=10) {
-        
-        event.preventDefault();
+    if (phone_numberValue!=10) {
 
-        phone.style.border = '1px solid red';
-
+        setErrorFor(phone_number, 'Phone number must be 10 digits.');
         // Alert the user
-        alert('Phone number must be 10 digits.');
+        //alert('Phone number must be 10 digits.');
+    }else{
+        setSuccessFor(phone_number);
     }
-
-    // Get the birthdate input element
-    var birthdateInput = document.getElementById('birthdate');
 
     // Set the min and max values
     birthdateInput.min = '1900-01-01';
     birthdateInput.max = new Date().toISOString().split('T')[0];
 
     // Get the birthdate input value
-    var birthdate = birthdateInput.value;
 
     // Convert the value to a Date object
-    var birthdateDate = new Date(birthdate);
+    var birthdateDate = new Date(birthdateValue);
 
     // Convert the min and max values to Date objects
     var minDate = new Date(birthdateInput.min);
@@ -61,38 +78,32 @@ function validateForm(event) {
 
     // If the birthdate is less than the min date or greater than the max date
     if (birthdateDate < minDate || birthdateDate > maxDate) {
-        // Prevent the form from being submitted
-        event.preventDefault();
 
-        birthdate.style.border = '1px solid red';
-
-
+        setErrorFor(birthdateInput, 'Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
         // Alert the user
-        alert('Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
+        //alert('Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
+    }else{
+        setSuccessFor(birthdateInput);
     }
 
-    var password = document.getElementById('password');
-    var confirmPassword = document.getElementById('confirmPassword');
+    if (passwordValue !== confirmPasswordValue) {
 
-    console.log('Password:', password.value);
-    console.log('Confirm Password:', confirmPassword.value);
-
-    if (password.value !== confirmPassword.value) {
-        alert('Passwords do not match.');
-
-        password.style.border = '1px solid red';
-        confirmPassword.style.border = '1px solid red';
-
-        event.preventDefault();
+        setErrorFor(confirmPassword, 'Passwords do not match.');
+        setErrorFor(password, '');
+        //alert('Passwords do not match.');
+    }else{
+        setSuccessFor(confirmPassword);
+        setSuccessFor(password);
     }
 
     // Check if the password meets the criteria
-    if (!isValidPassword(password.value)) {
-        alert('Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
-
-        password.style.border = '1px solid red';
-
-        event.preventDefault();
+    if (!isValidPassword(passwordValue)) {
+        setErrorFor(password, '');
+        setErrorFor(confirmPassword, 'Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
+        //alert('Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
+    }else{
+        setSuccessFor(confirmPassword);
+        setSuccessFor(password);
     }
 
 
@@ -104,9 +115,6 @@ function validateForm(event) {
 
     // If not
     if (!isAtLeastOneChecked) {
-        // Prevent the form from being submitted
-        event.preventDefault();
-
         // Alert the user
         alert('Please select at least one contact method.');
     }
@@ -120,8 +128,16 @@ function isValidPassword(password) {
     return regex.test(password);
 }
 
+function setErrorFor(input,message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    small.innerText = message;
+    formControl.className = 'form-control error';
+}
 
-    var form = document.getElementById("registrationForm");
-    form.addEventListener('submit', validateForm);
+function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
+}
         
 //TODO: fIX THE VALIDATION FORM IN THE LINES 124-125, FIX THE RED COLORING, REMOVE THE WARNINGS

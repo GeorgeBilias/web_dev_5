@@ -698,12 +698,6 @@ button:hover {
   background-color: #313331;
 }
 
-.error {
-  color: #ff0000;
-  margin-top: -10px;
-  margin-bottom: 10px;
-}
-
 .auth-buttons {
   display: flex;
   align-items: center;
@@ -782,6 +776,13 @@ select {
   text-align: center;
 }
 
+#field2 input{
+  border: 1px solid black;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+}
+
 #field3 {
   margin-top: 30px;
   border-radius: 7px;
@@ -798,4 +799,78 @@ select {
 
 #field4 {
   border:0 none;
+}
+
+.form-control{
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.form-control label{
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.form-control input{
+  border: 1px solid black;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+}
+.form-control i{
+  visibility: hidden;
+  position: absolute;
+  right: 10px;
+  top: 33px;
+}
+
+.form-control:nth-child(8) i {
+  margin-left: 20px;
+}
+.form-control:nth-child(8) i {
+  margin-left: 20px;
+}
+
+.form-control small{
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.form-control.success input{
+  border-color: #2ecc71; 
+}
+
+.form-control.error input{
+  border-color: #e74c3c; 
+}
+
+.form-control.success i.fa-check-circle{
+  color: #2ecc71;
+  visibility: visible;
+}
+
+
+.form-control.error i.fa-exclamation-circle{
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.form-control.error small{
+  color: #e74c3c;
+  visibility: visible;
+}
+
+input[type="submit"] {
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  background-color: #313331;
 }
