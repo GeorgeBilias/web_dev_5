@@ -140,4 +140,4 @@ function setSuccessFor(input) {
     formControl.className = 'form-control success';
 }
         
-//TODO: fIX THE VALIDATION FORM IN THE LINES 124-125, FIX THE RED COLORING, REMOVE THE WARNINGS
+//TODO: fIX THE VALIDATION FORM ERRORS, REMOVE THE WARNINGS
