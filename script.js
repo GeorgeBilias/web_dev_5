@@ -98,31 +98,42 @@ function validateForm() {
         setSuccessFor(birthdateInput);
     }
 
-    var m = '';
+    var mp = '';
+    var mcp ='';
     pass_errors = 0;
     // Check if the password meets the criteria
     if (!isValidPassword(passwordValue)) {
 
-        m = 'Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.';
+        mp = 'Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.';
         pass_errors++;
         errors++;
         //alert('Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
     }
 
+    if(!isValidPassword(confirmPasswordValue)){
+        mcp = 'Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.';
+        pass_errors++;
+        errors++;
+    }
+
     if (passwordValue !== confirmPasswordValue) {
 
-        if (m!=''){
-            m = m + '\n';
+        if (mp!=''){
+            mp = mp + '\n';
         }
-         m = m + 'Passwords do not match.';
+        if (mcp!=''){
+            mcp = mcp + '\n';
+        }
+        mp = mp + 'Passwords do not match.';
+        mcp = mcp + 'Passwords do not match.';
         pass_errors++;
         errors++;
         //alert('Passwords do not match.');
     }
 
     if (pass_errors>0) {
-        setErrorFor(password, m);
-        setErrorFor(confirmPassword, m);   
+        setErrorFor(password, mp);
+        setErrorFor(confirmPassword, mcp);   
     }else{
         setSuccessFor(password);
         setSuccessFor(confirmPassword);
