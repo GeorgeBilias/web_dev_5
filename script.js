@@ -30,47 +30,81 @@ function validateForm() {
     const birthdateInput = document.getElementById('birthdate');
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('confirmPassword');
+    const username = document.getElementById('username');
 
     const first_nameValue = first_name.value;
     const last_nameValue = last_name.value;
     const emailValue = email.value;
     const addressValue = address.value;
     const address_numberValue = address_number.value;
-    const postalCodeValue = postalCode.value.replace(/\s/g, '').length;
-    const phone_numberValue = phone_number.value.toString().length;
     const birthdateValue = birthdateInput.value;
     const passwordValue = password.value;
     const confirmPasswordValue = confirmPassword.value;
+    const usernameValue = username.value;
 
     let errors = 0;
+
+    let nameRegex = /^[a-zA-Z\u0370-\u03FF\s]+$/; // This regex allows English and Greek characters and spaces
     
-
-    if (address_numberValue<1) {
-
-        setErrorFor(address_number, 'Address number must be greater than 0.');
+    if (!nameRegex.test(first_nameValue)) {
+        setErrorFor(first_name, 'First name must contain only English and Greek characters.');
         errors++;
-        //alert('Address number must be greater than 0.');
-    }else{
+    } else {
+        setSuccessFor(first_name);
+    }
+
+    if (!nameRegex.test(last_nameValue)) {
+        setErrorFor(last_name, 'Last name must contain only English and Greek characters.');
+        errors++;
+    } else {
+        setSuccessFor(last_name);
+    }
+
+    // Email validation: Check for '@' symbol and '.com'
+    if (emailValue.indexOf('@') === -1 || emailValue.indexOf('.com') === -1) {
+        setErrorFor(email, 'Enter a valid email address.');
+        errors++;
+    } else {
+        setSuccessFor(email);
+    }
+
+    if (!nameRegex.test(addressValue)) {
+        setErrorFor(address, 'Address must contain only English and Greek characters.');
+        errors++;
+    } else {
+        setSuccessFor(address);
+    }
+
+    // Address number validation: Check for at least one digit and only numbers
+    let addressNumberRegex = /^\d+$/;
+
+    if (!addressNumberRegex.test(address_numberValue) || address_numberValue.length < 1) {
+        setErrorFor(address_number, 'Address number must be at least one digit and contain only numbers.');
+        errors++;
+    } else {
         setSuccessFor(address_number);
     }
 
-    if (postalCodeValue!=5) {
+    var postalCodeValue = postalCode.value.replace(/\s/g, ''); // Remove spaces from postal code
 
-        setErrorFor(postalCode, 'Postal code must be 5 digits.');
+    // Postal code validation: Check for exactly 5 digits and only numbers
+    let postalCodeRegex = /^\d{5}$/;
+
+    if (!postalCodeRegex.test(postalCodeValue)) {
+        setErrorFor(postalCode, 'Postal code must be exactly 5 digits and contain only numbers.');
         errors++;
-        // Alert the user
-        //alert('Postal code must be 5 digits.');
-    }else{
+    } else {
         setSuccessFor(postalCode);
     }
 
-    if (phone_numberValue!=10) {
 
-        setErrorFor(phone_number, 'Phone number must be 10 digits.');
+    // Convert phone number to string before checking length
+    var phone_numberValue = phone_number.value.toString();
+
+    if (phone_numberValue.length !== 10 || !/^\d+$/.test(phone_numberValue)) {
+        setErrorFor(phone_number, 'Phone number must be 10 digits and contain only numbers.');
         errors++;
-        // Alert the user
-        //alert('Phone number must be 10 digits.');
-    }else{
+    } else {
         setSuccessFor(phone_number);
     }
 
@@ -96,6 +130,14 @@ function validateForm() {
         //alert('Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
     }else{
         setSuccessFor(birthdateInput);
+    }
+
+    // Username validation: Check for at least 3 characters and not starting with a number
+    if (usernameValue.length < 3 || /^\d/.test(usernameValue)) {
+        setErrorFor(username, 'Username must be at least 3 characters long and not start with a number.');
+        errors++;
+    } else {
+            setSuccessFor(username);
     }
 
     var mp = '';
