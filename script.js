@@ -163,4 +163,3 @@ function setSuccessFor(input) {
 }
        
 });
-//TODO: fIX THE VALIDATION FORM ERRORS, REMOVE THE WARNINGS
