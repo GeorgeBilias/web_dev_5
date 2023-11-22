@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Attach the submit event listener after the DOM is fully loaded
     form.addEventListener('submit', function(event) {
-        // Your form submission validation and handling logic
+        // form submission validation and handling logic
         if (!validateForm()) {
             event.preventDefault();
             console.log('Form submission prevented due to errors.');
