@@ -1,13 +1,22 @@
-const form = document.getElementById('registrationForm');
-form.addEventListener('submit', function (event) {
-    validateForm(event);
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registrationForm');
+
+    // Attach the submit event listener after the DOM is fully loaded
+    form.addEventListener('submit', function(event) {
+        // Your form submission validation and handling logic
+        if (!validateForm()) {
+            event.preventDefault();
+            console.log('Form submission prevented due to errors.');
+            alert('Please fix the errors in the form before submitting.');
+        } else {
+            console.log('Form submitted successfully.');
+            alert('Form submitted successfully.');
+            form.reset();
+        }
+    });
 
 
-
-function validateForm(event) {
-
-    event.preventDefault();
+function validateForm() {
     
     console.log('function called');
 
@@ -33,13 +42,13 @@ function validateForm(event) {
     const passwordValue = password.value;
     const confirmPasswordValue = confirmPassword.value;
 
-
-    // Get the address number and postal code input values
+    let errors = 0;
     
 
     if (address_numberValue<1) {
 
         setErrorFor(address_number, 'Address number must be greater than 0.');
+        errors++;
         //alert('Address number must be greater than 0.');
     }else{
         setSuccessFor(address_number);
@@ -48,6 +57,7 @@ function validateForm(event) {
     if (postalCodeValue!=5) {
 
         setErrorFor(postalCode, 'Postal code must be 5 digits.');
+        errors++;
         // Alert the user
         //alert('Postal code must be 5 digits.');
     }else{
@@ -57,6 +67,7 @@ function validateForm(event) {
     if (phone_numberValue!=10) {
 
         setErrorFor(phone_number, 'Phone number must be 10 digits.');
+        errors++;
         // Alert the user
         //alert('Phone number must be 10 digits.');
     }else{
@@ -80,6 +91,7 @@ function validateForm(event) {
     if (birthdateDate < minDate || birthdateDate > maxDate) {
 
         setErrorFor(birthdateInput, 'Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
+        errors++;
         // Alert the user
         //alert('Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
     }else{
@@ -90,6 +102,7 @@ function validateForm(event) {
 
         setErrorFor(confirmPassword, 'Passwords do not match.');
         setErrorFor(password, '');
+        errors++;
         //alert('Passwords do not match.');
     }else{
         setSuccessFor(confirmPassword);
@@ -100,6 +113,7 @@ function validateForm(event) {
     if (!isValidPassword(passwordValue)) {
         setErrorFor(password, '');
         setErrorFor(confirmPassword, 'Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
+        errors++;
         //alert('Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
     }else{
         setSuccessFor(confirmPassword);
@@ -117,8 +131,16 @@ function validateForm(event) {
     if (!isAtLeastOneChecked) {
         // Alert the user
         alert('Please select at least one contact method.');
+        errors++;
     }
 
+    console.log(errors);
+
+    if (errors>0) {
+        return false;
+    }else{
+        return true;
+    }
     
 }
 
@@ -139,5 +161,6 @@ function setSuccessFor(input) {
     const formControl = input.parentElement;
     formControl.className = 'form-control success';
 }
-        
+       
+});
 //TODO: fIX THE VALIDATION FORM ERRORS, REMOVE THE WARNINGS

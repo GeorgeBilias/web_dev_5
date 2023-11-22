@@ -69,7 +69,7 @@
             <div class="form-control">
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required title="Παρακαλώ εισάγετε ένα έγκυρο email" placeholder="example@gmail.com">
+                <input type="email" id="email" name="email" required title="Παρακαλώ εισάγετε ένα έγκυρο email" placeholder="example@gmail.com" >
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -87,7 +87,7 @@
             </div>
 
             <div class="form-control">
-                <!---->
+            
                 <label for="address_number">Αριθμος Διεύθυνσης Κατοικίας:</label>
                 <input type="number" id="address_number" name="address_number" pattern="[0-9]*" title="Παρακαλώ εισάγετε ένα έγκυρο νούμερο" min="1" required>
                 <i class="fas fa-check-circle"></i>
@@ -120,8 +120,8 @@
 
                 <label for="birthdate">Ημερομηνία Γέννησης:</label>
                 <input type="date" id="birthdate" name="birthdate" required>
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
+                <!--<i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i> -->
                 <small>Error Message</small>
             
             </div>
@@ -200,22 +200,39 @@
             
 
             <label for="adType">Τι τύπος αγγελίας σας ενδιαφέρει;</label>
-            <input type="text" id="adType" name="adType">
+            <input type="text" id="adType" name="adType" list="adlist" autocomplete="on">
+            <datalist id ="adlist">
+                <option>Consoles</option>
+                <option>Games</option>
+                <option>PCs</option>
+                <option>Cars</option>
+                <option>Motorcycles</option>
+                <option>Boats</option>
+            </datalist>
 
             <label for="jobPosition">Ποία είναι η θέση εργασίας σας;</label>
-            <input type="text" id="jobPosition" name="jobPosition">
+            <input type="text" id="jobPosition" name="jobPosition" list="joblist" autocomplete="on">
+            <datalist id="joblist">
+                <option>Manager</option>
+                <option>Employee</option>
+                <option>Freelancer</option>
+                <option>Unemployed</option>
+            </datalist>
 
             <label for="preferredResidence">Σε ποιές περιοχές θα σας ενδιέφερε να κατοικήσετε;</label>
             <input type="text" id="preferredResidence" name="preferredResidence">
+
 
             <label for="professionalAreas">Σε ποιές περιοχές θα σας ενδιέφερε να δραστηριοποιηθείτε επαγγελματικά;</label>
             <input type="text" id="professionalAreas" name="professionalAreas">
 
             <label for="vehicleTypes">Τι τύπους οχημάτων χρησιμοποιείτε;</label>
-            <input type="text" id="vehicleTypes" name="vehicleTypes">
+            <input type="text" id="vehicleTypes" name="vehicleTypes" list="vehiclelist" autocomplete="on">
+            <datalist id="vehiclelist">
+                <option>Car</option>
+                <option>Motorcycle</option>
+            </datalist>  
 
-            
-            
             </details>
 
         </fieldset>
