@@ -49,7 +49,7 @@
             <div class="form-control">
 
                 <label for="firstName">Όνομα:</label>
-                <input type="text" id="firstName" name="firstName" placeholder="John"  title="Παρακαλώ εισάγετε το όνομα σας" required>
+                <input type="text" id="firstName" name="firstName" placeholder="John" autocomplete="given-name" title="Παρακαλώ εισάγετε το όνομα σας" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -59,7 +59,7 @@
             <div class="form-control">
 
                 <label for="lastName">Επώνυμο:</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Doe" title="Παρακαλώ εισάγετε το επίθετο σας" required>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" autocomplete="family-name" title="Παρακαλώ εισάγετε το επίθετο σας" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -69,7 +69,7 @@
             <div class="form-control">
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="example@gmail.com"  title="Παρακαλώ εισάγετε ένα έγκυρο email" required>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" autocomplete="email" title="Παρακαλώ εισάγετε ένα έγκυρο email" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -79,7 +79,7 @@
             <div class="form-control">
 
                 <label for="address">Διεύθυνση Κατοικίας:</label>
-                <input type="text" id="address" name="address" title="Παρακαλώ εισάγετε μια έγκυρη διεύθυνση" placeholder="Address" required>
+                <input type="text" id="address" name="address" title="Παρακαλώ εισάγετε μια έγκυρη διεύθυνση" autocomplete="address-line1" placeholder="Address" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -89,7 +89,7 @@
             <div class="form-control">
             
                 <label for="address_number">Αριθμος Διεύθυνσης Κατοικίας:</label>
-                <input type="number" id="address_number" name="address_number" placeholder="Address Number" title="Παρακαλώ εισάγετε ένα έγκυρο νούμερο" required>
+                <input type="number" id="address_number" name="address_number" placeholder="Address Number" autocomplete="off" title="Παρακαλώ εισάγετε ένα έγκυρο νούμερο" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -99,7 +99,7 @@
             <div class="form-control">
 
                 <label for="postal_code">Ταχυδρομικός Κώδικας:</label>
-                <input type="text" id="postal_code" name="postal_code" title="Εισάγετε ΤΚ σε ενα απ'τα επιτρεπόμενα formats: 'Α ΒΒΒΒ', 'ΑΑ ΒΒΒ', 'ΑΑΑ ΒΒ', 'ΑΑΑΑ Β'" required>
+                <input type="text" id="postal_code" name="postal_code" autocomplete="postal-code" title="Εισάγετε ΤΚ σε ενα απ'τα επιτρεπόμενα formats: 'Α ΒΒΒΒ', 'ΑΑ ΒΒΒ', 'ΑΑΑ ΒΒ', 'ΑΑΑΑ Β'" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -109,7 +109,7 @@
             <div class="form-control">
 
                 <label for="phone">Αριθμος Τηλεφώνου:</label>
-                <!----><input type="tel" id="phone" name="phone" title="Παρακαλώ εισάγετε ένα 10ψήφιο αριθμό τηλεφώνου χωρίς κενά" required>
+                <!----><input type="tel" id="phone" name="phone" autocomplete="tel-local" title="Παρακαλώ εισάγετε ένα 10ψήφιο αριθμό τηλεφώνου χωρίς κενά" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -119,7 +119,7 @@
             <div class="form-control">
 
                 <label for="birthdate">Ημερομηνία Γέννησης:</label>
-                <input type="date" id="birthdate" name="birthdate" required>
+                <input type="date" id="birthdate" name="birthdate" autocomplete="off" required>
                 <!--<i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i> -->
                 <small>Error Message</small>
@@ -129,7 +129,7 @@
             <div class="form-control">
 
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="JohnDoe" required>
+                <input type="text" id="username" name="username" autocomplete="username" placeholder="JohnDoe" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -139,7 +139,7 @@
             <div class="form-control">
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="password" name="password" autocomplete="off" placeholder="Password" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
@@ -149,7 +149,7 @@
             <div class="form-control">
 
                 <label for="confirmPassword">Επιβεβαίωση Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Password" required>
+                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off placeholder="Password" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error Message</small>
