@@ -3,8 +3,6 @@
 -- RETRACE THE REQUIREMENTS
 -- ADD COMMENTS IN 5 (form,script,css new addons)
 
--- FIX THE ERROR MESSAGES PADDING, mentioned in css where and what must be done.
-
 --- ENDING
 
 CREATE INDEX FOR FINAL SUBMISSION
