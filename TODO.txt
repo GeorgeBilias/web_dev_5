@@ -1,9 +1,5 @@
--- RETRACE THE REQUIREMENTS FROM 4 AND ON
--- ADD COMMENTS IN ALL PARTS FROM 4 to 5th (copy and paste in mutual parts), also add stuff changed from 4 to 5.
-
---- IN ASSIGNMENT 4
-
-ADD THE MEDIA QUERIES CORRECT THIS TIME
+-- RETRACE THE REQUIREMENTS FROM 5
+-- ADD COMMENTS IN 5 (form,script,css new addons)
 
 --- IN ASSIGNMENT 5
 
