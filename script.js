@@ -78,7 +78,7 @@ function validateForm() {
     // Address number validation: Check for at least one digit and only numbers
     let addressNumberRegex = /^\d+$/;
 
-    if (!addressNumberRegex.test(address_numberValue) || address_numberValue.length < 1) {
+    if (!addressNumberRegex.test(address_numberValue) || address_numberValue.length < 1 || address_numberValue == 0) {
         setErrorFor(address_number, 'Address number must be at least one digit and contain only numbers.');
         errors++;
     } else {
