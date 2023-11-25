@@ -916,13 +916,7 @@ select {
 
 .form-control{
   margin-bottom: 10px;
-  padding-bottom: 30px; /*here too*/
   position: relative;
-}
-/*adjust the 9th child seperately for all devices*/
-.form-control:nth-child(10),
-.form-control:nth-child(11) {
-    padding-bottom: 70px; /* adjust this value only for mobile and tablet specific*/
 }
 
 .form-control label{
@@ -942,16 +936,9 @@ select {
   top: 33px;
 }
 
-.form-control:nth-child(8) i {
-  margin-left: 20px;
-}
-.form-control:nth-child(8) i {
-  margin-left: 20px;
-}
-
 .form-control small{
   visibility: hidden;
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
 }
