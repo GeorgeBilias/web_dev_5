@@ -916,12 +916,13 @@ select {
 
 .form-control{
   margin-bottom: 10px;
-  padding-bottom: 25px;
+  padding-bottom: 30px; /*here too*/
   position: relative;
 }
+/*adjust the 9th child seperately for all devices*/
 .form-control:nth-child(10),
 .form-control:nth-child(11) {
-    padding-bottom: 50px; /* adjust this value as needed */
+    padding-bottom: 70px; /* adjust this value only for mobile and tablet specific*/
 }
 
 .form-control label{
