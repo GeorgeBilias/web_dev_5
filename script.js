@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('registrationForm');
 
-    // Attach the submit event listener after the DOM is fully loaded
-    form.addEventListener('submit', function(event) {
-        // form submission validation and handling logic
+    
+    form.addEventListener('submit', function(event) { // this code executs after submit button is clicked
+        // Prevent the form from submitting based on the outcome of the function
         if (!validateForm()) {
             event.preventDefault();
             console.log('Form submission prevented due to errors.');
-            alert('Please fix the errors in the form before submitting.');
+            alert('Please fix the errors in the form before submitting.'); 
         } else {
+        // If the form is valid, submit it
             console.log('Form submitted successfully.');
             alert('Form submitted successfully.');
             form.reset();
@@ -16,9 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-function validateForm() {
+function validateForm() { // check if form is valid or not
     
     console.log('function called');
+
+    // Get the form elements to check for errors
 
     const first_name = document.getElementById('firstName');
     const last_name = document.getElementById('lastName');
@@ -31,7 +34,7 @@ function validateForm() {
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('confirmPassword');
     const username = document.getElementById('username');
-
+    //get their values
     const first_nameValue = first_name.value;
     const last_nameValue = last_name.value;
     const emailValue = email.value;
@@ -41,19 +44,19 @@ function validateForm() {
     const passwordValue = password.value;
     const confirmPasswordValue = confirmPassword.value;
     const usernameValue = username.value;
-
+    //counter for errors
     let errors = 0;
 
     let nameRegex = /^[a-zA-Z\u0370-\u03FF\s]+$/; // This regex allows English and Greek characters and spaces
     
-    if (!nameRegex.test(first_nameValue)) {
+    if (!nameRegex.test(first_nameValue)) { // Check if the first name contains only English and Greek characters
         setErrorFor(first_name, 'First name must contain only English and Greek characters.');
         errors++;
     } else {
         setSuccessFor(first_name);
     }
 
-    if (!nameRegex.test(last_nameValue)) {
+    if (!nameRegex.test(last_nameValue)) { // Check if the last name contains only English and Greek characters
         setErrorFor(last_name, 'Last name must contain only English and Greek characters.');
         errors++;
     } else {
@@ -68,6 +71,7 @@ function validateForm() {
         setSuccessFor(email);
     }
 
+    // Address validation: Check for only English and Greek characters
     if (!nameRegex.test(addressValue)) {
         setErrorFor(address, 'Address must contain only English and Greek characters.');
         errors++;
@@ -75,7 +79,7 @@ function validateForm() {
         setSuccessFor(address);
     }
 
-    // Address number validation: Check for at least one digit and only numbers
+    // Address number validation: Check for at least one digit and only numbers that are not 0 and below
     let addressNumberRegex = /^\d+$/;
 
     if (!addressNumberRegex.test(address_numberValue) || address_numberValue.length < 1 || address_numberValue == 0) {
@@ -100,7 +104,7 @@ function validateForm() {
 
     // Convert phone number to string before checking length
     var phone_numberValue = phone_number.value.toString();
-
+    //check if number is 10 digits and only numbers
     if (phone_numberValue.length !== 10 || !/^\d+$/.test(phone_numberValue)) {
         setErrorFor(phone_number, 'Phone number must be 10 digits and contain only numbers.');
         errors++;
@@ -108,7 +112,7 @@ function validateForm() {
         setSuccessFor(phone_number);
     }
 
-    // Set the min and max values
+    // Set the min and max values for the birthdate input
     birthdateInput.min = '1900-01-01';
     birthdateInput.max = new Date().toISOString().split('T')[0];
 
@@ -123,11 +127,8 @@ function validateForm() {
 
     // If the birthdate is less than the min date or greater than the max date
     if (birthdateDate < minDate || birthdateDate > maxDate) {
-
         setErrorFor(birthdateInput, 'Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
         errors++;
-        // Alert the user
-        //alert('Birthdate must be between ' + minDate.getFullYear() + ' and ' + maxDate.toISOString().split('T')[0] + '.');
     }else{
         setSuccessFor(birthdateInput);
     }
@@ -142,14 +143,14 @@ function validateForm() {
 
     var mp = '';
     var mcp ='';
-    pass_errors = 0;
+    pass_errors = 0; // counter for the password errors
+
     // Check if the password meets the criteria
     if (!isValidPassword(passwordValue)) {
 
         mp = 'Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.';
         pass_errors++;
         errors++;
-        //alert('Password must have at least one uppercase letter, one lowercase letter, one number, and be 8 characters long.');
     }
 
     if(!isValidPassword(confirmPasswordValue)){
@@ -157,9 +158,11 @@ function validateForm() {
         pass_errors++;
         errors++;
     }
-
+    //check if the passwords match
     if (passwordValue !== confirmPasswordValue) {
 
+
+        // if there's aldready a message about the criteria add a new line
         if (mp!=''){
             mp = mp + '\n';
         }
@@ -170,9 +173,8 @@ function validateForm() {
         mcp = mcp + 'Passwords do not match.';
         pass_errors++;
         errors++;
-        //alert('Passwords do not match.');
     }
-
+    // if there is password errors setError for both of them with their seperate appropriate messages
     if (pass_errors>0) {
         setErrorFor(password, mp);
         setErrorFor(confirmPassword, mcp);   
@@ -190,13 +192,12 @@ function validateForm() {
 
     // If not
     if (!isAtLeastOneChecked) {
-        // Alert the user
         alert('Please select at least one contact method.');
         errors++;
     }
 
-    console.log(errors);
-
+    console.log(errors); // print number of errors
+    // if there is errors it returns false so the form wont get sumbit else true to submit
     if (errors>0) {
         return false;
     }else{
@@ -211,16 +212,17 @@ function isValidPassword(password) {
     return regex.test(password);
 }
 
-function setErrorFor(input,message) {
-    const formControl = input.parentElement;
+// print messages under the input fields using invisible text
+function setErrorFor(input,message) { // set error message
+    const formControl = input.parentElement;  // get the parent 
     const small = formControl.querySelector('small');
     small.innerText = message;
-    formControl.className = 'form-control error';
+    formControl.className = 'form-control error'; // manipulate the class so we can change the color,add icons and error message with css
 }
 
-function setSuccessFor(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-control success';
+function setSuccessFor(input) { // set success message
+    const formControl = input.parentElement; // get the parent
+    formControl.className = 'form-control success'; // manipulate the class so we can change the color and add the icons
 }
        
 });

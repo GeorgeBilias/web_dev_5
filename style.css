@@ -797,7 +797,6 @@ input, select {
   border-radius: 4px;
 }
 
-
 button {
   background-color: #000000;
   color: #fff;
@@ -810,7 +809,7 @@ button {
 button:hover {
   background-color: #313331;
 }
-
+/* align the auth buttons */
 .auth-buttons {
   display: flex;
   align-items: center;
@@ -827,7 +826,7 @@ button:hover {
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-
+/*when button is active change it to grey*/
 .auth-button.active {
   color: #a1a0a0;
 }
@@ -840,69 +839,57 @@ button:hover {
   align-items: flex-start;
 }
 
-.checkbox-option {
+.checkbox-option { /* style each checkbox to be alligned with the text they represent */
   display: flex;
   margin-left: 10px;
   margin-bottom: 5px;
 }
 
-.checkbox-option label {
+.checkbox-option label { /*add margin to the labels for the checkboxes*/
   margin-left: 5px;
   min-width: 100px;
 }
 
-
-
-#questionaire_title {
+#questionaire_title { /* style the title of the questionaire */
   text-align: center;
 }
 
-select {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-
-#field1,#field2 {
+#field1,#field2 { /* remove borders from fieldsets */
   border:0 none;
 }
 
-#field1 {
+#field1 {  /* margin the field 1 */
   margin-top: 5px;
   margin-bottom: 10%;
 }
 
-#field2 details p{
+#field2 details p{ /* style the text inside the details in the questionaire*/
   margin-bottom: 30px;
 }
 
-#field2 details {
+#field2 details { /* style the details in the questionaire */
   margin-bottom: 30px;
 }
 
-#field2 summary {
+#field2 summary { /* style the summary in the questionaire */
   cursor: pointer;
   text-align: center;
 }
 
-#field2 input{
+#field2 input{ /* style each input box of the questionaire */
   border: 1px solid black;
   border-radius: 4px;
   display: block;
   width: 100%;
 }
 
-#field3 {
+#field3 {  /* style contact methods container */
   margin-top: 30px;
   border-radius: 7px;
   border-color: #847f7f;
 }
 
-#field4-legend{
+#field4-legend{ /* style the title of the registration form */
   
   text-align: center;
   font-size: 24px;
@@ -910,64 +897,64 @@ select {
   color: #333;
 }
 
-#field4 {
+#field4 { /* remove borders from field4 */
   border:0 none;
 }
 
-.form-control{
+.form-control{ /* add margin to each form control */
   margin-bottom: 10px;
   position: relative;
 }
 
-.form-control label{
+.form-control label{ /* style each form label */
   display: inline-block;
   margin-bottom: 5px;
 }
-.form-control input{
+.form-control input{  /* style each input box for a better border */
   border: 1px solid black;
   border-radius: 4px;
   display: block;
   width: 100%;
 }
-.form-control i{
+.form-control i{ /* make the icons invisible for incorrect and correct input */
   visibility: hidden;
   position: absolute;
   right: 10px;
   top: 33px;
 }
 
-.form-control small{
+.form-control small{ /* make error messages in each label invisible and align them*/
   visibility: hidden;
   position: relative;
   bottom: 0;
   left: 0;
 }
 
-.form-control.success input{
+.form-control.success input{  /* style the input box when it is correct */
   border-color: #2ecc71; 
 }
 
-.form-control.error input{
+.form-control.error input{  /* style the input box when it is incorrect */
   border-color: #e74c3c; 
 }
 
-.form-control.success i.fa-check-circle{
+.form-control.success i.fa-check-circle{ /* style the check icon when the input box is correct */
   color: #2ecc71;
   visibility: visible;
 }
 
 
-.form-control.error i.fa-exclamation-circle{
+.form-control.error i.fa-exclamation-circle{ /* style the exclamation icon when the input box is incorrect */
   color: #e74c3c;
   visibility: visible;
 }
 
-.form-control.error small{
+.form-control.error small{ /* make error messages in each label visible */
   color: #e74c3c;
   visibility: visible;
 }
 
-input[type="submit"] {
+input[type="submit"] {   /* style the submit button (Υποβολη) */
   background-color: #000000;
   color: #fff;
   padding: 10px 20px;
@@ -977,6 +964,6 @@ input[type="submit"] {
   font-weight: bold;
 }
 
-input[type="submit"]:hover {
-  background-color: #313331;
+input[type="submit"]:hover { /* style the submit button (Υποβολη) when hovering */
+  background-color: #313331; 
 }
